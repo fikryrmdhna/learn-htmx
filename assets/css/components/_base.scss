@@ -1,0 +1,40 @@
+.main{
+    overflow: hidden;
+}
+
+.htmx-indicator{
+    display:none;
+}
+.htmx-request .htmx-indicator{
+    display:inline;
+}
+.htmx-request.htmx-indicator{
+    display:inline;
+}
+.fade-me-out.htmx-swapping {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+
+#modal-backdrop{
+    background-color: #fff;
+
+    &.show{
+        opacity: .9;
+    }
+}
+
+.modal{
+    .modal-content{
+        border: none;
+        border-radius: 0;
+        background-color: rgb(255, 71, 71);
+    }
+
+    .modal-header{
+        border-bottom: 1px solid #ff4747;
+    }
+    .modal-footer{
+        border-top: 1px solid #ff4747;
+    }
+}

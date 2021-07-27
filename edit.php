@@ -8,12 +8,10 @@
     {	
         $id = $_POST['id'];
         
-        $name=$_POST['name'];
-        $age=$_POST['age'];
-        $email=$_POST['email'];
+        $activity=$_POST['activity'];
             
         // update user data
-        $result = mysqli_query($mysqli, "UPDATE users SET name='$name',email='$email',age='$age' WHERE id=$id");
+        $result = mysqli_query($mysqli, "UPDATE users SET activity='$activity' WHERE id=$id");
         header("Location: index.php");
     }
     ?>
@@ -25,35 +23,22 @@
     // user data based on id
     $result = mysqli_query($mysqli, "SELECT * FROM users WHERE id=$id");
     
-    while($user_data = mysqli_fetch_array($result))
+    while($todo = mysqli_fetch_array($result))
     {
-        $name = $user_data['name'];
-        $email = $user_data['email'];
-        $age = $user_data['age'];
+        $activity = $todo['activity'];
     }
     ?>
   <body>
-      <main>
-          <section>
+      <!-- <main>
+          <section >
               <div class="container">
-                  <div class="row">
-                        <div class="col-12">
-                            <!-- <form name="update_user" method="post" action="edit.php"> -->
-                            <form name="update_user" hx-post="edit.php?id=<?php echo $id;?>" hx-target="#listData" hx-swap="outerHTML">
+                  <div class="row"> -->
+                        <div class="wrapper-data" >
+                            <form hx-post="edit.php?id=<?php echo $id;?>" hx-target="#listData" hx-swap="outerHTML" id="editForm">
                                 <table border="0">
                                     <tr> 
-                                        <td>Name</td>
-                                        <td><input type="text" name="name" value=<?php echo $name;?>></td>
-                                    </tr>
-                                    <tr> 
-                                        <td>Email</td>
-                                        <td><input type="text" name="email" value=<?php echo $email;?>></td>
-                                    </tr>
-                                    <tr> 
-                                        <td>Age</td>
-                                        <td><input type="text" name="age" value=<?php echo $age;?>></td>
-                                    </tr>
-                                    <tr>
+                                        <td>Activity</td>
+                                        <td><input type="text" class="ml-3 form-control" name="activity" value=<?php echo $activity;?>></td>
                                         <td><input type="hidden" name="id" value=<?php echo $_GET['id'];?>></td>
                                         <td>
                                             <button type="submit" class="btn btn-success" name="update">
@@ -64,11 +49,11 @@
                                 </table>
                             </form>
                         </div>
-                  </div>
+                  <!-- </div>
               </div>
           </section>
-      </main>
+      </main> -->
     
-      <?php include 'footer.php';?>
+
   </body>
 </html>

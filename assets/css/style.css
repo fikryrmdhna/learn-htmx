@@ -1,17 +1,44 @@
-.main{
-    overflow: hidden;
+.main {
+  overflow: hidden;
 }
 
-.htmx-indicator{
-    display:none;
+.htmx-indicator {
+  display: none;
 }
-.htmx-request .htmx-indicator{
-    display:inline;
+
+.htmx-request .htmx-indicator {
+  display: inline;
 }
-.htmx-request.htmx-indicator{
-    display:inline;
+
+.htmx-request.htmx-indicator {
+  display: inline;
 }
+
 .fade-me-out.htmx-swapping {
-    opacity: 0;
-    transition: opacity 1s ease-out;
-  }
+  opacity: 0;
+  -webkit-transition: opacity 1s ease-out;
+  transition: opacity 1s ease-out;
+}
+
+#modal-backdrop {
+  background-color: #fff;
+}
+
+#modal-backdrop.show {
+  opacity: .9;
+}
+
+.modal .modal-content {
+  border: none;
+  border-radius: 0;
+  background-color: #ff4747;
+}
+
+.modal .modal-header {
+  border-bottom: 1px solid #ff4747;
+}
+
+.modal .modal-footer {
+  border-top: 1px solid #ff4747;
+}
+/*# sourceMappingURL=style.css.map */
