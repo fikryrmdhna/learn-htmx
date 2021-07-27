@@ -1,5 +1,3 @@
-<?php include 'head.php';?>
-
   <?php
     include_once("config.php");
     
@@ -14,8 +12,8 @@
         $result = mysqli_query($mysqli, "UPDATE users SET activity='$activity' WHERE id=$id");
         header("Location: index.php");
     }
-    ?>
-    <?php
+?>
+<?php
     // Display selected user data based on id
     // Getting id from url
     $id = $_GET['id'];
@@ -27,33 +25,24 @@
     {
         $activity = $todo['activity'];
     }
-    ?>
-  <body>
-      <!-- <main>
-          <section >
-              <div class="container">
-                  <div class="row"> -->
-                        <div class="wrapper-data" >
-                            <form hx-post="edit.php?id=<?php echo $id;?>" hx-target="#listData" hx-swap="outerHTML" id="editForm">
-                                <table border="0">
-                                    <tr> 
-                                        <td>Activity</td>
-                                        <td><input type="text" class="ml-3 form-control" name="activity" value=<?php echo $activity;?>></td>
-                                        <td><input type="hidden" name="id" value=<?php echo $_GET['id'];?>></td>
-                                        <td>
-                                            <button type="submit" class="btn btn-success" name="update">
-                                                Update
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </form>
-                        </div>
-                  <!-- </div>
-              </div>
-          </section>
-      </main> -->
-    
+?>
 
-  </body>
-</html>
+<div class="wrapper__edit" >
+    <h3 class="title">
+        Edit Activity
+    </h3>
+    <form hx-post="edit.php?id=<?php echo $id;?>" hx-target="#listData" hx-swap="outerHTML" id="editForm">
+        <div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text">Activity</label>
+                </div>
+                <input type="text" class="form-control" name="activity" value="<?php echo $activity;?>" aria-describedby="button-addon2">
+                <input type="hidden" name="id" value=<?php echo $_GET['id'];?>>
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-success" name="update" onclick="closeModal()" id="button-addon2">Update</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
