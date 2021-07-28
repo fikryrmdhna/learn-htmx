@@ -33,7 +33,7 @@
                                   echo "<td data-target='activity'>".$todo['activity']."</td>"; 
                                   echo "<td class='text-center'>
                                   <a class='btn btn-info' hx-get='edit.php?id=$todo[id]' data-toggle='modal' data-target='#modalPopup' hx-target='.modal-selector' hx-trigger='click'>Edit</a>
-                                  <a class='btn btn-danger ml-2' hx-delete='delete.php?id=$todo[id]' data-toggle='modal' data-target='#modalPopup' hx-target='.modal-selector' hx-trigger='click'>Delete</a></td></tr>";    
+                                  <a class='btn btn-danger ml-2' hx-get='delete.php?id=$todo[id]' data-toggle='modal' data-target='#modalPopup' hx-target='.modal-selector' hx-trigger='click'>Delete</a></td></tr>";    
                               }
                               ?>
                             </table>
